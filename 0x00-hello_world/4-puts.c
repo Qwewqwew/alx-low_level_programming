@@ -2,9 +2,9 @@
 /**
  * main - enrty point
  *
- * Description : C program using puts funtion
+ * Description: C program using puts funtion
  *
- * return : sucsess when returns (0)
+ * Return: (0) success
 */
 int main(void)
 {
