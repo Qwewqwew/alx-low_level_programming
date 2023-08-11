@@ -10,15 +10,17 @@
 */
 int main(void)
 {
-char l;
-char U;
-for (l = 97; l < 123; l++)
+char l = 97;
+char U = 65;
+while (l < 123)
 {
 putchar(l);
+l++;
 }
-for (U = 65; U < 91; U++)
+while (U < 91)
 {
 putchar(U);
+U++;
 }
 putchar('\n');
 return (0);
