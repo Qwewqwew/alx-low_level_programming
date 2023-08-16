@@ -3,11 +3,11 @@
 /**
  * _abs - print the abs value
  *
- * @int: input to return abs
+ * @i: input to return abs
  *
  * Return: the abs value
 */
-int _abs(int)
+int _abs(int i)
 {
 if (i < 0)
 return (-i);
