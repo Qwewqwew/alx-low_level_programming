@@ -12,7 +12,6 @@ putchar('0');
 for (j = 0; j < 10; j++)
 {
 putchar(',');
-putchar(' ');
 k = i * j;
 if (k < 10)
 {
