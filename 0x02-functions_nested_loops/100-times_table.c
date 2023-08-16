@@ -16,17 +16,17 @@ putchar('0');
 for (j = 1; j <= n; j++)
 {
 putchar(',');
-putchar('.');
+putchar(' ');
 l = i * j;
 if (l < 10)
 {
-putchar('.');
-putchar('.');
+putchar(' ');
+putchar(' ');
 putchar(l + '0');
 }
 else if (l < 100)
 {
-putchar('.');
+putchar(' ');
 putchar(l / 10 + '0');
 putchar(l % 10 + '0');
 }
