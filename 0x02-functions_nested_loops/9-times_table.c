@@ -16,12 +16,11 @@ k = i * j;
 if (k < 10)
 {
 putchar(' ');
-putchar(' ');
 putchar(k + '0');
 }
 else
 {
-putchar(' ');
+putchar('\n');
 putchar(k / 10 + '0');
 putchar(k % 10 + '0');
 }
