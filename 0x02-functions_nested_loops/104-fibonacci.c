@@ -22,7 +22,7 @@ f_1_1 = f_1 / max;
 f_2_1 = f_2 / max;
 f_1_2 = f_1 % max;
 f_2_2 = f_2 % max;
-for (c = 93; c < 96; c++)
+for (c = 93; c < 98; c++)
 {
 num_1 = f_1_1 + f_2_1;
 num_2 = f_1_2 + f_2_2;
@@ -32,7 +32,7 @@ num_1 += 1;
 num_2 %= max;
 }
 printf("%lu%lu", num_1, num_2);
-if (c != 95)
+if (c != 98)
 printf(", ");
 f_1_1 = f_2_1;
 f_1_2 = f_2_2;
