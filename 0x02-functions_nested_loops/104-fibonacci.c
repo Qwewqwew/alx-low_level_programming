@@ -39,6 +39,6 @@ f_1_2 = f_2_2;
 f_2_1 = num_1;
 f_2_2 = num_2;
 }
-printf("\n");
+printf(" \n");
 return (0);
 }
