@@ -15,7 +15,7 @@ for (c = 1; c < 93; c++)
 sum = f_1 + f_2;
 printf("%lu", sum);
 f_1 = f_2;
-f_2 = s;
+f_2 = sum;
 }
 unsigned long max = 1000000;
 f_1_1 = f_1 / max;
