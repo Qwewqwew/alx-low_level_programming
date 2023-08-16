@@ -6,20 +6,17 @@
 */
 int main(void)
 {
-long i = 0, j = 1, sum;
-float total;
+long i = 0, j = 1, sum, total = 0;
 while (1)
 {
 sum = i + j;
 if (sum > 4000000)
 break;
-else if ((sum % 2) == 0)
-{
+if ((sum % 2) == 0)
 total += sum;
 i = j;
 j = sum;
 }
-}
-printf("%.0f\n", total);
+printf("%ld\n", total);
 return (0);
 }
