@@ -14,7 +14,7 @@ unsigned long max = 100000000;
 for (c = 1; c < 93; c++)
 {
 sum = f_1 + f_2;
-printf("%lu", sum);
+printf("%lu, ", sum);
 f_1 = f_2;
 f_2 = sum;
 }
