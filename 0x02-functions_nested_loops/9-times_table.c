@@ -9,6 +9,7 @@ int i, j, k;
 for (i = 0; i < 10; i++)
 {
 putchar('0');
+putchar(' ');
 for (j = 0; j < 10; j++)
 {
 putchar(',');
