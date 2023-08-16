@@ -33,7 +33,7 @@ putchar(l % 10 + '0');
 else
 {
 putchar(l / 100 + '0');
-putchar((l / 100) % 10 + '0');
+putchar((l % 100) / 10 + '0');
 putchar(l % 10 + '0');
 }
 }
