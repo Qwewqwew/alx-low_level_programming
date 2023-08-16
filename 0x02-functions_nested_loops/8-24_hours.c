@@ -1,4 +1,4 @@
-#include <srdio.h>
+#include <stdio.h>
 #include "main.h"
 /**
  * jack_bauer - afunction that prints every minuet of the day
