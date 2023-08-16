@@ -10,7 +10,7 @@ int c;
 unsigned long f_1 = 0, f_2 = 1, sum;
 unsigned long f_1_1, f_1_2, f_2_1, f_2_2;
 unsigned long num_1, num_2;
-unsigned long max = 100000000;
+unsigned long max = 10000000000;
 for (c = 0; c < 92; c++)
 {
 sum = f_1 + f_2;
@@ -39,6 +39,6 @@ f_1_2 = f_2_2;
 f_2_1 = num_1;
 f_2_2 = num_2;
 }
-printf(" \n");
+printf("\n");
 return (0);
 }
