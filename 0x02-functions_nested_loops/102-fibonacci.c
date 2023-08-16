@@ -14,10 +14,10 @@ res = n_1 + n_2;
 printf("%ld", res);
 n_1 = n_2;
 n_2 = res;
-}
 if (i == 49)
 printf("\n");
 else
 printf(", ");
+}
 return (0);
 }
