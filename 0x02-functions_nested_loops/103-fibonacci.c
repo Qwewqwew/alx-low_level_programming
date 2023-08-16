@@ -6,7 +6,8 @@
 */
 int main(void)
 {
-long i = 0, j = 1, sum, total = 0;
+long i = 0, j = 1, sum;
+float total;
 while (1)
 {
 sum = i + j;
@@ -19,6 +20,6 @@ i = j;
 j = sum;
 }
 }
-printf("%ld\n", total);
+printf("%.0f\n", total);
 return (0);
 }
