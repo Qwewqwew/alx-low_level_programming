@@ -1,23 +1,18 @@
-#include <stdi.h>
+#include <stdio.h>
 #include "main.h"
 /**
- * _islower - a function that checks wether c is in lowercase
+ * _islower- a function check if "c"
+ * is in lowercase
  *
- * 0c: checks input
+ * 0c: checks the input of the function
  *
- * Return: (0) non lowercase (1) lowercase
+ * Return: (0) when not in lowercase
+ * (1) when "c" is in lowercase
 */
-int _islower(int c);
+int _islower(int c)
 {
-	int i;
-
-	if (c >= 'a' && c <= 'z')
-	{
-		i = 1;
-	}
+	if (c >= 97 && c <= 122)
+		return (1);
 	else
-	{
-		i = 0;
-	}
-	return (i);
+		return (0);
 }
