@@ -6,21 +6,20 @@
 */
 int main(void)
 {
-long int i = 612852475143;
-int j;
-while (j < (i / 2))
+long int n = 612852475143;
+long int i, j;
+for (i = 1; i <= n; i++)
 {
-if ((i % 2) == 0)
+if ((n % i) == 0)
 {
-i /= 2;
-continue;
-}
-for (j = 3; j < (i / 2); j += 2)
+if (n == i)
 {
-if (i % j == 0)
-i /= j;
+printf("%ld\n", n);
+break;
+}
+j = n / i;
+n = j;
 }
 }
-printf("%ld\n");
 return (0);
 }
