@@ -5,11 +5,11 @@
  * @a: input to be multiplied
  * @b: input to be multiplied
  *
- * Return: (0) on success
+ * Return: the result
 */
 int mul(int a, int b)
 {
 int result;
 result = a * b;
-return (0);
+return (result);
 }
