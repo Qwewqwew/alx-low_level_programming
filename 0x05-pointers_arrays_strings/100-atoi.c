@@ -7,15 +7,16 @@
 */
 int _atoi(char *s)
 {
-unsigned int u = 0;
-int i = 1;
+unsigned int num = 0;
+int sign = 1
 do {
 if (*s == '-')
-i *= -1;
+sign *= -1;
 else if (*s >= '0' && *s <= '9')
-u = (u * 10) + (*s - 0);
-else if (u > 0)
+num = (num * 10) + (*s - 0);
+else if (num > 0)
 break;
 } while (*s++);
-return (u *i);
+
+return (num * sign);
 }
