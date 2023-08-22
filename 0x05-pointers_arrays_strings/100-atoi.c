@@ -12,7 +12,7 @@ int i = 1;
 do {
 if (*s == '-')
 i *= -1;
-else if (*s >= '0' && *s <= '0')
+else if (*s >= '0' && *s <= '9')
 u = (u * 10) + (*s - 0);
 else if (u > 0)
 break;
