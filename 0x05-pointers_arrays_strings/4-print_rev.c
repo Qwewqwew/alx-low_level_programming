@@ -1,16 +1,16 @@
 #include "main.h"
 /**
- * print_rev - A function that prints a 
+ * print_rev - A function that prints a
  * string in reverse
  *
- * @s: input that is an array 
+ * @s: input that is an array
 */
 void print_rev(char *s)
 {
 int i = 0;
-while(s[i])
+while (s[i])
 i++;
-while(i--)
+while (i--)
 {
 _putchar(s[i]);
 }
