@@ -14,9 +14,9 @@ int main (void)
 int s;
 char c;
 srand(time(NULL));
-while (s <= 2500)
+while (s <= 2645)
 {
-c = rand() % 78;
+c = rand() % 128;
 s += c;
 putchar(c);
 }
