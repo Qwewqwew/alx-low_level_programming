@@ -5,20 +5,16 @@
  * @s1: input pointer
  * @s2: input pointer
  *
- * Return: 1 if true 0 if false
+ * Return: the difference between s1 , s2
 */
 int _strcmp(char *s1, char *s2)
 {
-int i = 0;
-while (*s1)
+int i;
+while (s1[i] != '\0' && s2[i] != '\0')
 {
-if (*s1 != *s2)
-{
-i = ((int)*s1 - 48) _ ((int)*s2 _ 48);
-break;
+if (s1[i] != s2[i])
+return (s1[i] - s2[i]);
+i++;
 }
-*s1++;
-*s2++;
-}
-return (i);
+return (0);
 }
