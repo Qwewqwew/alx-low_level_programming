@@ -12,7 +12,7 @@ int i;
 i = 0;
 while (c[i])
 {
-while (!(c[i] >= "a" && c[i] <= 'z'))
+while (!(c[i] >= 'a' && c[i] <= 'z'))
 i++;
 if (c[i - 1] == ' ' ||
 c[i - 1] == '\t' ||
