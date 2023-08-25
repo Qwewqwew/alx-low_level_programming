@@ -1,5 +1,26 @@
 #include "main.h"
 /**
+ * rev_string - revers array
+ * @n: input
+*/
+void rev_string(char *n)
+{
+int i = 0;
+int j = 0;
+char c;
+while (*(n + i) != '\0')
+{
+i++;
+}
+i--;
+for (j = 0; j < i; j++, i--)
+{
+c = *(n + j);
+*(n + j) = *(n + i);
+*(n + i) = c;
+}
+}
+/**
  * *infinite_add - A function that adds
  * two numbers
  * @n1: input number1
