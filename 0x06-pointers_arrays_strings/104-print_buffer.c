@@ -31,7 +31,7 @@ printf(" ");
 }
 for (k = 0; k < j; k++)
 {
-int m = *(b + i +k);
+int m = *(b + i + k);
 if (m < 32 || m > 132)
 {
 m = '.';
