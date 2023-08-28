@@ -8,21 +8,19 @@
 */
 char *_strstr(char *haystack, char *needle)
 {
-int i;
-if (*needle == 0)
-return (haystack);
-while (*haystack)
+char *h;
+char *n;
+for (; *haystack != '\0'; haystack++)
 {
-i = 0;
-if (haystack[i] == needle[i])
+h = haystack;
+n = needle;
+while (*h == *n && *n != '\0')
 {
-do {
-if (needle[i + 1] == '\0')
+h++;
+n++;
+}
+if (*n == '\0')
 return (haystack);
-i++;
-} while (haystack[i] == needle[i]);
 }
-haystack ++;
-}
-return ('\0');
+return (0);
 }
