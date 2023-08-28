@@ -12,7 +12,7 @@ unsigned int i = 0;
 while (i < n)
 {
 src[i] = dest[i];
-i++
+i++;
 }
 return (dest);
 }
