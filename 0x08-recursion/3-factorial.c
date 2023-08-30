@@ -7,11 +7,13 @@
 */
 int factorial(int n)
 {
-int fact = 1;
-if (n > 0)
+if (n < 0)
 {
-fact *= factorial(n);
-n--;
+return (-1);
 }
-return (fact);
+if (n == 0)
+{
+return (0);
+}
+return (n * factorial(n - 1));
 }
