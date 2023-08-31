@@ -11,7 +11,7 @@ int act_sqrt(int n, int val)
 if (val * val == n)
 return (val);
 else if (val * val < n)
-return (act_sqrt(n, (val - 1)));
+return (act_sqrt(n, (val + 1)));
 else
 return (-1);
 }
