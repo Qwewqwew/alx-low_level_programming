@@ -18,7 +18,7 @@ for (i = 0; i < 5; i++)
 if (money >= cents[i])
 {
 change += money / cents[i];
-money %= cents[i];
+money = money % cents[i];
 if (money % cents[i] == 0)
 {
 break;
