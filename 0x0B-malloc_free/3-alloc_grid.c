@@ -21,6 +21,7 @@ if (m[i] == NULL)
 {
 for (; i >= 0; i--)
 free(m[i]);
+free(m);
 return (NULL);
 }
 }
