@@ -24,6 +24,7 @@ return (malloc(new_size));
 m1 = malloc(new_size);
 if (!m1)
 return (NULL);
+m2 = ptr;
 if (new_size < old_size)
 {
 for (i = 0; i < new_size; i++)
