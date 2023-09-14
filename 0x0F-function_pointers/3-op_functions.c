@@ -2,7 +2,7 @@
 int op_add(int a, int b);
 int op_sub(int a, int b);
 int op_mul(int a, int b);
-int op_dev(int a, int b);
+int op_div(int a, int b);
 int op_mod(int a, int b);
 /**
  * op_add - Returns the sum of a & b
@@ -35,12 +35,12 @@ int op_mul(int a, int b)
 return (a * b);
 }
 /**
- * op_dev - Returns a devided by b
+ * op_div - Returns a devided by b
  * @a: first num
  * @b: second num
  * Return: a devided by b
 */
-int op_dev(int a, int b)
+int op_div(int a, int b)
 {
 return (a / b);
 }
