@@ -29,7 +29,7 @@ break;
 case 's':
 str = va_arg(form, char *);
 if (!str)
-str = "(nil";
+str = "(nil)";
 printf("%s%s", sepr, str);
 break;
 default:
