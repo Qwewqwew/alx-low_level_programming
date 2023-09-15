@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <stdlib>
+#include <stdlib.h>
 /**
  * main - prints its own opcodes
  * @argc: number of arguments
  * @argv: array of arguments
  * Return: 0 on success
 */
-int main(int aegc, char *argv[])
+int main(int argc, char *argv[])
 {
 int bytes, i;
 char *ar;
@@ -19,7 +19,7 @@ bytes = atoi(argv[1]);
 if (bytes < 0)
 {
 printf("Error\n");
-esit(2);
+exit(2);
 }
 ar = (char *)main;
 for (i = 0; i < bytes; i++)
