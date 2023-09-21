@@ -1,5 +1,5 @@
-	global main
-	extrn printf
+	global	main
+	extern	printf
 main:
 	mor	edi, format
 	xor	eax, eax
