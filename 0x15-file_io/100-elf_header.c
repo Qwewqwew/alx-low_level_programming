@@ -6,12 +6,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
+void check_elf(unsigned char *i);
+void print_magic(unsigned char *i);
+void print_class(unsigned char *i);
+void print_data(unsigned char *i);
+void print_version(unsigned char *i);
+void print_abi(unsigned char *i);
 void print_osabi(unsigned char *e_ident);
 void print_type(unsigned int e_type, unsigned char *e_ident);
 void print_entry(unsigned long int e_entry, unsigned char *e_ident);
@@ -19,17 +19,17 @@ void close_elf(int elf);
 
 /**
  * check_elf - checks the file if it is an ELF
- * @e_ident: pointer ti the array which contains ELF magic number
+ * @i: pointer ti the array which contains ELF magic number
 */
-void check_elf(unsigned char *e_ident)
+void check_elf(unsigned char *i)
 {
 int ix;
 for (ix = 0; ix < 4; ix++)
 {
-if (e_ident[ix] != 127 &&
-e_ident[ix] != 'E' &&
-e_ident[ix] != 'L' &&
-e_ident[ix] != 'F')
+if (i[ix] != 127 &&
+i[ix] != 'E' &&
+i[ix] != 'L' &&
+i[ix] != 'F')
 {
 dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 exit(98);
@@ -39,15 +39,15 @@ exit(98);
 
 /**
  * print_magic - A function that prints the ELF magic number
- * @e_ident: pointer to the array which contains ELF magic num
+ * @i: pointer to the array which contains ELF magic num
 */
-void print_magic(unsigned char *e_ident)
+void print_magic(unsigned char *i)
 {
 int ix;
 printf(" Magic: ");
 for (ix = 0; ix < EI_NIDENT; ix++)
 {
-printf("%02x", e_ident[ix]);
+printf("%02x", i[ix]);
 if (ix == EI_NIDENT - 1)
 printf("\n");
 else
@@ -57,12 +57,12 @@ printf(" ");
 
 /**
  * print_class - A function that prints the class of ELF header
- * @e_ident: pointer to the array which contains ELF magic num
+ * @i: pointer to the array which contains ELF magic num
 */
-void print_data(unsigned char *e_ident)
+void print_class(unsigned char *i)
 {
 printf(" Class: ");
-switch (e_ident[EI_CLASS])
+switch (i[EI_CLASS])
 {
 case ELFCLASSNONE:
 printf("none\n");
@@ -74,6 +74,105 @@ case ELFCLASS64:
 printf("ELF64\n");
 break;
 default:
-printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+printf("<unknown: %x>\n", i[EI_CLASS]);
+}
+}
+
+/**
+ * print_data - A function that prints the data of ELF header
+ * @i: pointer to the array which contains ELF magic num
+*/
+void print_data(unsigned char *i)
+{
+printf(" Data: ");
+switch (i[EI_DATA])
+{
+case ELFDATANONE:
+printf("none\n");
+break;
+case ELFDATA2LSB:
+printf("2's complement, little endian\n");
+break;
+case ELFDATA2MSB:
+printf("2's complement, big endian\n");
+break;
+default:
+printf("<unknown: %x>\n",
+i[EI_CLASS]);
+}
+}
+
+/**
+ * print_version - A function that prints ELF header version
+ * @i: pointer to the array which contains ELF magic num
+*/
+void print_version(unsigned char *i)
+{
+printf(" Version: %d",
+i[EI_VERSION]);
+switch (i[EI_VERSION])
+{
+case EV_CURRENT:
+printf(" (current)\n");
+break;
+default:
+printf("\n");
+break;
+}
+}
+
+/**
+ * print_abi - A function that prints ELF header ABI
+ * @i: pointer to the array which contains ELF magic num
+*/
+void print_abi(unsigned char *i)
+{
+printf(" ABI Version: %d\n",
+i[EI_ABIVERSION]);
+}
+
+/**
+ * print_osabi - A function that that prints ELF header file's
+ * OS/ABI
+ * @i: pointer to the array which contains ELF magic num
+*/
+void print_osabi(unsigned char *i)
+{
+printf(" OS/ABI: ");
+switch (i[EI_OSABI])
+{
+case ELFOSABI_NONE:
+printf("UNIX - System V\n");
+break;
+case ELFOSABI_HPUX:
+printf("UNIX - HP-UX\n");
+break;
+case ELFOSABI_NETBSD:
+printf("UNIX - NetBSD\n");
+break;
+case ELFOSABI_LINUX:
+printf("UNIX - Linux\n");
+break;
+case ELFOSABI_SOLARIS:
+printf("UNIX - Solaris\n");
+break;
+case ELFOSABI_IRIX:
+printf("UNIX - IRIX\n");
+break;
+case ELFOSABI_FREEBSD:
+printf("UNIX - FreeBSD\n");
+break;
+case ELFOSABI_TRU64:
+printf("UNIX - TRU64\n");
+break;
+case ELFOSABI_ARM:
+printf("ARM\n");
+break;
+case ELFOSABI_STANDALONE:
+printf("Standalone App\n");
+break;
+default:
+printf("<unknown: %x>\n",
+i[EI_OSABI]);
 }
 }
