@@ -12,10 +12,10 @@ void print_class(unsigned char *i);
 void print_data(unsigned char *i);
 void print_version(unsigned char *i);
 void print_abi(unsigned char *i);
-void print_osabi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
+void print_osabi(unsigned char *i);
+void print_type(unsigned int type, unsigned char *i);
+void print_entry(unsigned long int entry, unsigned char *i);
+void close_elf(int celf);
 
 /**
  * check_elf - checks the file if it is an ELF
@@ -80,7 +80,7 @@ printf("<unknown: %x>\n", i[EI_CLASS]);
 
 /**
  * print_data - A function that prints the data of ELF header
- * @i: pointer to the array which contains ELF magic num
+ * @i: pointer to the array which contains ELF class
 */
 void print_data(unsigned char *i)
 {
@@ -104,7 +104,7 @@ i[EI_CLASS]);
 
 /**
  * print_version - A function that prints ELF header version
- * @i: pointer to the array which contains ELF magic num
+ * @i: pointer to the array which contains ELF version
 */
 void print_version(unsigned char *i)
 {
@@ -123,7 +123,7 @@ break;
 
 /**
  * print_abi - A function that prints ELF header ABI
- * @i: pointer to the array which contains ELF magic num
+ * @i: pointer to the array which contains ELF ABI
 */
 void print_abi(unsigned char *i)
 {
@@ -134,7 +134,7 @@ i[EI_ABIVERSION]);
 /**
  * print_osabi - A function that that prints ELF header file's
  * OS/ABI
- * @i: pointer to the array which contains ELF magic num
+ * @i: pointer to the array which contains ELF version
 */
 void print_osabi(unsigned char *i)
 {
@@ -174,5 +174,71 @@ break;
 default:
 printf("<unknown: %x>\n",
 i[EI_OSABI]);
+}
+}
+
+/**
+ * print_type - A function that prints ELF header's type
+ * @type: the type of the file
+ * @i: pointer to the array which contains ELF class
+*/
+void print_type(unsigned int type, unsigned char *i)
+{
+if (i[EI_DATA] == ELFDATA2MSB)
+type >>= 8;
+printf(" Type: ");
+switch (type)
+{
+case ET_NONE:
+printf("NONE (None)\n");
+break;
+case ET_REL:
+printf("REL (Relocatable file)\n");
+break;
+case ET_EXEC:
+printf("EXEC (Executable file)\n");
+break;
+case ET_DYN:
+printf("DYN (Shared object file)\n");
+break;
+case ET_CORE:
+printf("CORE (Core file)\n");
+break;
+default:
+printf("<unknown: %x>\n", type);
+}
+}
+
+/**
+ * print_entry - A function that prints ELF header file's entry
+ * @entry: address of entry point
+ * @i: pointer to the array which contains ELF class
+*/
+void print_entry(unsigned long int entry, unsigned char *i)
+{
+printf(" Entry point address: ");
+if (i[EI_DATA] == ELFDATA2MSB)
+{
+entry = ((entry << 8) & 0xFF00FF00) |
+((entry >> 8) & 0xFF00FF);
+entry = (entry << 16) | (entry >> 16);
+}
+if (i[EI_CLASS] == ELFCLASS32)
+printf("%#x\n", (unsigned int)entry);
+else
+printf("%#lx\n", entry);
+}
+
+/**
+ * close_elf - terminate ELF file
+ * @celf: the file stands for ELF file
+*/
+void close_elf(int celf)
+{
+if (close(celf) == -1)
+{
+dprintf(STDERR_FILENO,
+"Error: Can't close fd %d\n", celf);
+exit(98);
 }
 }
