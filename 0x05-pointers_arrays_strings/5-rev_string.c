@@ -5,8 +5,8 @@
 */
 void rev_string(char *s)
 {
-int i, j;
 char *temp;
+int i, j;
 for (i = 0; s[i] != '\0'; i++)
 temp[i] = s[i];
 temp[i] = '\0';
