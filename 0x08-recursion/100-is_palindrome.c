@@ -36,6 +36,6 @@ return (verify_pal(s, (st + 1), (nd - 1), modul));
 */
 int is_palindrome(char *s)
 {
-int nd = length(s);i
+int nd = length(s);
 return (verify_pal(s, 0, (nd - 1), (nd % 2)));
 }
